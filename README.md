@@ -8,6 +8,6 @@ To create a folder:
   curl -X PUT --user name:password -d path=/somepath/ http://esp32fs.local/edit
 
 To upload a file:
-  curl --user name:password -F "file=mm.m;filename=/mm.txt" http://esp32fs.local/edit
+  curl --user name:password -F "file=@mm.m;filename=/mm.txt" http://esp32fs.local/edit
 
 After uploading edit.htm the filesystem can be accessed by Browsing to {localIP}/edit.htm
