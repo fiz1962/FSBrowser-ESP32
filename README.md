@@ -2,7 +2,7 @@ https://github.com/espressif/arduino-esp32/tree/master/libraries/WebServer/examp
 
 FSBrowser for Arduino IDE and ESP32 boards.
 
-From FSBrowser example for ESP32 boards in Arduino IDE with several fixes for FFAT file system.  No need to upload data folder.  
+From FSBrowser example for ESP32 boards in Arduino IDE with several fixes for FFAT file system.  No need to upload data folder.  Files can be added to device using curl without need to upload filesystem image first.
 
 To create a folder:
   curl -X PUT --user name:password -d path=/somepath/ http://esp32fs.local/edit
