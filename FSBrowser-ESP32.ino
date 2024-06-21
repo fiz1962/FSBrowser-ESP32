@@ -28,18 +28,12 @@
 #include <ESPmDNS.h>
 
 #define FILESYSTEM FFat
-// You only need to format the filesystem once
-#define FORMAT_FILESYSTEM false
+// You only need to format the filesystem once. Done automatically if needed.
+#define FORMAT_FILESYSTEM true
 #define DBG_OUTPUT_PORT   Serial
 
-#if FILESYSTEM == FFat
 #include <FFat.h>
 const char* fsName = "FFat";
-#endif
-#if FILESYSTEM == SPIFFS
-#include <SPIFFS.h>
-//const char* fsName = "SPIFFS";
-#endif
 
 const char *ssid = "***";
 const char *password = "***";
@@ -259,10 +253,8 @@ void setup(void) {
   DBG_OUTPUT_PORT.begin(115200);
   DBG_OUTPUT_PORT.print("\n");
   DBG_OUTPUT_PORT.setDebugOutput(true);
-  if (FORMAT_FILESYSTEM) {
-    FILESYSTEM.format();
-  }
-  FILESYSTEM.begin();
+
+  FILESYSTEM.begin(FORMAT_FILESYSTEM);
 
   {
     File root = FILESYSTEM.open("/");
