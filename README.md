@@ -11,3 +11,5 @@ To upload a file:
   curl --user name:password -F "file=@edit.htm;filename=/edit.htm" http://esp32fs.local/edit
 
 After uploading edit.htm the filesystem can be accessed by Browsing to {localIP}/edit.htm
+
+fileUploader.sh can be used to recursively upload a folder structure to the device.
